@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雪径 Snowline Studio — 把每一座雪场，变成可游玩的世界</title>
+<meta name="description" content="雪径 Snowline Studio：服务全球雪场的游戏工作室。把雪道图变成可游玩的游戏：精准复刻地形雪道，Cel 风格呈现，沙盘漫游与自由滑行。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B26; --blue:#1F6FA8; --snow:#F4F7FA; --orange:#E8862E;
+  --green:#2FA35C; --sky:#2B7FB8; --red:#D64545; --black:#20242A;
+  --card:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans SC","Space Grotesk",sans-serif;background:var(--snow);color:var(--navy);line-height:1.7}
+.en{font-family:"Space Grotesk","Noto Sans SC",sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:50;background:var(--snow);border-bottom:3px solid var(--navy)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand-mini{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;text-decoration:none;color:var(--navy)}
+.brand-mini img{width:38px;height:38px;object-fit:contain}
+nav .links a{margin-left:22px;text-decoration:none;color:var(--navy);font-weight:500;font-size:15px}
+nav .links a:hover{color:var(--blue)}
+.hero{padding:84px 0 72px;text-align:center;position:relative;overflow:hidden}
+.hero .badge{width:168px;height:168px;object-fit:contain;margin-bottom:20px;filter:drop-shadow(6px 6px 0 rgba(13,27,38,.15))}
+.hero h1{font-size:56px;font-weight:900;letter-spacing:2px}
+.hero h1 .en{display:block;font-size:30px;letter-spacing:6px;color:var(--blue);margin-top:6px}
+.hero .slogan{font-size:21px;margin:22px 0 8px;font-weight:700}
+.hero .slogan-en{color:#5A6B7A;font-size:15px;margin-bottom:32px}
+.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 30px;border:3px solid var(--navy);border-radius:14px;
+  font-weight:700;font-size:16px;text-decoration:none;color:var(--navy);background:#fff;
+  box-shadow:5px 5px 0 var(--navy);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--navy)}
+.btn.primary{background:var(--orange);color:#fff}
+.btn.dark{background:var(--navy);color:#fff}
+section{padding:64px 0}
+.sec-head{margin-bottom:34px}
+.sec-head .kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:3px;color:#fff;
+  background:var(--blue);padding:5px 14px;border-radius:999px;margin-bottom:12px}
+.sec-head h2{font-size:34px;font-weight:900}
+.sec-head p{color:#5A6B7A;margin-top:8px;max-width:720px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{background:var(--card);border:3px solid var(--navy);border-radius:18px;padding:28px;
+  box-shadow:7px 7px 0 var(--navy)}
+.card h3{font-size:20px;margin-bottom:10px}
+.card h3 .en{display:block;font-size:13px;color:var(--blue);letter-spacing:2px;font-weight:500}
+.card p{font-size:15px;color:#3D4C5B}
+.tag{display:inline-block;font-size:12px;font-weight:700;border:2px solid var(--navy);border-radius:999px;
+  padding:2px 12px;margin:0 6px 6px 0;background:var(--snow)}
+.steps{counter-reset:step;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.step{background:var(--card);border:3px solid var(--navy);border-radius:18px;padding:26px 24px;
+  box-shadow:7px 7px 0 var(--navy);position:relative}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:"Space Grotesk";font-weight:700;
+  font-size:15px;color:#fff;background:var(--navy);border-radius:10px;padding:3px 12px;display:inline-block;margin-bottom:14px}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{font-size:14px;color:#3D4C5B}
+.work{background:var(--navy);color:#fff;border-radius:26px;padding:44px;box-shadow:7px 7px 0 rgba(13,27,38,.25)}
+.work h3{font-size:26px;margin-bottom:6px}
+.work .en-sub{color:#9FB4C7;font-size:14px;margin-bottom:18px}
+.work p{color:#D7E2EC;font-size:15px;max-width:760px}
+.work .meta{margin:22px 0;display:flex;flex-wrap:wrap;gap:10px}
+.pill{font-size:13px;border:2px solid #fff;border-radius:999px;padding:4px 14px;color:#fff}
+.work .btn{margin-top:6px}
+table.compare{width:100%;border-collapse:separate;border-spacing:0;background:#fff;
+  border:3px solid var(--navy);border-radius:18px;overflow:hidden;box-shadow:7px 7px 0 var(--navy);font-size:15px}
+table.compare th,table.compare td{padding:15px 18px;text-align:left;border-bottom:2px solid #E3EAF0}
+table.compare th{background:var(--navy);color:#fff;font-size:14px}
+table.compare tr:last-child td{border-bottom:none}
+.verdict-ok{color:var(--green);font-weight:700}
+.verdict-no{color:var(--red);font-weight:700}
+.verdict-mid{color:#B97A1A;font-weight:700}
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:22px}
+.logo-card{background:#fff;border:3px solid var(--navy);border-radius:18px;box-shadow:7px 7px 0 var(--navy);overflow:hidden}
+.logo-card img{width:100%;height:260px;object-fit:contain;background:#fff;padding:18px;border-bottom:3px solid var(--navy)}
+.logo-card .cap{padding:18px 22px}
+.logo-card .cap h4{font-size:17px}
+.logo-card .cap p{font-size:14px;color:#5A6B7A;margin-top:6px}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:22px}
+.swatch{border:3px solid var(--navy);border-radius:14px;overflow:hidden;box-shadow:5px 5px 0 var(--navy);background:#fff}
+.swatch .c{height:84px}
+.swatch .t{padding:10px 14px;font-size:13px}
+.swatch .t b{display:block;font-size:14px}
+.swatch .t code{font-family:"Space Grotesk";color:#5A6B7A}
+.type-demo{background:#fff;border:3px solid var(--navy);border-radius:18px;box-shadow:7px 7px 0 var(--navy);
+  padding:30px;margin-top:22px}
+.type-demo .big{font-family:"Space Grotesk";font-size:40px;font-weight:700}
+.type-demo .cn{font-size:28px;font-weight:900;margin-top:6px}
+.type-demo .note{font-size:14px;color:#5A6B7A;margin-top:10px}
+.next{background:#fff;border:3px dashed var(--blue);border-radius:18px;padding:30px;margin-top:26px}
+.next h3{font-size:19px;margin-bottom:12px}
+.next ol{margin-left:20px;font-size:15px;color:#3D4C5B}
+.next ol li{margin-bottom:8px}
+.contact-box{background:var(--navy);color:#fff;border-radius:22px;padding:44px;text-align:center;box-shadow:7px 7px 0 rgba(13,27,38,.25)}
+.contact-box h2{font-size:30px;margin-bottom:10px}
+.contact-box p{color:#9FB4C7;margin-bottom:26px}
+footer{padding:34px 0 44px;text-align:center;color:#8A99A8;font-size:13px}
+footer a{color:var(--blue);text-decoration:none}
+@media(max-width:640px){.hero h1{font-size:40px}nav .links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand-mini" href="#top"><img src="assets/logo-a-badge.webp" alt="雪径">雪径 <span class="en" style="font-size:13px;letter-spacing:3px;color:var(--blue)">SNOWLINE</span></a>
+    <div class="links">
+      <a href="#about">工作室</a><a href="#services">服务</a><a href="#works">作品</a><a href="#brand">品牌方案</a><a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <img class="badge" src="assets/logo-a-badge.webp" alt="雪径 Snowline Studio 徽章 logo">
+    <h1>雪径<span class="en">SNOWLINE STUDIO</span></h1>
+    <p class="slogan">把每一座雪场，变成可游玩的世界。</p>
+    <p class="slogan-en en">We turn trail maps into playable worlds — for ski resorts everywhere.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://eric1hua.github.io/hemu-ski/" target="_blank" rel="noopener">试玩首个作品 ⛷</a>
+      <a class="btn" href="#brand">查看品牌方案</a>
+      <a class="btn dark" href="#contact">商务合作</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="about">
+  <div class="sec-head">
+    <span class="kicker">ABOUT</span>
+    <h2>服务全球雪场的游戏工作室</h2>
+    <p>我们开发了一套程序管线，可以精准复刻任意雪场的地形与雪道，并以 Cel 风格呈现。玩家像在真实雪场里一样滑行、探索、与设施互动 —— 像 GTA 那样自由。</p>
+  </div>
+  <div class="grid3">
+    <div class="card">
+      <h3>精准复刻<span class="en">TRUE-TO-TERRAIN</span></h3>
+      <p>真实高程数据烘焙地形，官方雪道图 + OSM 还原每一条雪道与缆车，雪道整平保证坡度保真。误差可量化、可验证。</p>
+    </div>
+    <div class="card">
+      <h3>Cel 风格呈现<span class="en">CEL-SHADED</span></h3>
+      <p>干净利落的卡通渲染：粗描边、平面色块、高对比。品牌视觉与游戏画面是同一种语言，辨识度拉满。</p>
+    </div>
+    <div class="card">
+      <h3>自由探索<span class="en">OPEN SLOPE</span></h3>
+      <p>3D 沙盘俯瞰整座雪场，GTA 式自由滑行，缆车、雪具店、餐厅等设施皆可互动。不止是地图，是可进入的世界。</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="sec-head">
+    <span class="kicker">SERVICES</span>
+    <h2>为雪场提供的服务</h2>
+    <p>从一张雪道图，到一个可游玩、可传播、可运营的数字雪场。标准交付流程：</p>
+  </div>
+  <div class="steps">
+    <div class="step"><h3>地形数字化</h3><p>采集高程数据、官方雪道图与 OSM 数据，烘焙高精度 3D 地形，还原山体起伏。</p></div>
+    <div class="step"><h3>雪道还原</h3><p>雪道走廊整平 carving，缆车、难度分级、设施点位一一落位，滑行手感保真。</p></div>
+    <div class="step"><h3>Cel 风格化</h3><p>Toon 渲染 + 雪场品牌定制配色，日夜与天气氛围，截图即海报。</p></div>
+    <div class="step"><h3>交互与上线</h3><p>沙盘漫游、自由滑行、设施互动一次交付，Web 秒开，也可上架多端。</p></div>
+  </div>
+  <div style="margin-top:22px">
+    <span class="tag">定制开发</span><span class="tag">赛季内容更新</span><span class="tag">雪场联名</span><span class="tag">营销互动页</span><span class="tag">滑雪学校教学</span>
+  </div>
+</section>
+
+<section id="works">
+  <div class="sec-head">
+    <span class="kicker">WORKS</span>
+    <h2>作品</h2>
+    <p>已完成并上线的第一个雪场 —— 证明管线是通的。</p>
+  </div>
+  <div class="work">
+    <h3>禾木 · 吉克普林 <span class="en" style="font-size:16px;letter-spacing:2px">HEMU-SKI</span></h3>
+    <p class="en-sub">First playable resort · Live on GitHub Pages</p>
+    <p>新疆吉克普林雪场可玩原型：Copernicus GLO-30 真实高程、OSM 87 条雪道与 10 条缆车、雪道整平 carving、toon 渲染。支持沙盘编辑器、GPS 路径规划、diorama 沙盘模式与飞行漫游。</p>
+    <div class="meta">
+      <span class="pill">真实地形</span><span class="pill">Cel 渲染</span><span class="pill">沙盘漫游</span><span class="pill">自由滑行</span><span class="pill">Web 秒开</span>
+    </div>
+    <a class="btn primary" href="https://eric1hua.github.io/hemu-ski/" target="_blank" rel="noopener">进入游戏 →</a>
+  </div>
+  <div class="card" style="margin-top:22px;text-align:center">
+    <h3>下一座雪场，虚位以待<span class="en">YOUR RESORT HERE</span></h3>
+    <p>如果你经营一座雪场，欢迎带着雪道图来聊。我们负责把它变成游戏。</p>
+  </div>
+</section>
+
+<section id="brand">
+  <div class="sec-head">
+    <span class="kicker">BRAND PROPOSAL</span>
+    <h2>品牌方案（公示版）</h2>
+    <p>名称经过域名可用性实查（RDAP）与重名碰撞检索。以下为结论，供最终选定。</p>
+  </div>
+
+  <table class="compare">
+    <tr><th>候选名</th><th>域名</th><th>碰撞风险</th><th>结论</th></tr>
+    <tr>
+      <td><b>雪径</b> <span class="en">Snowline Studio</span></td>
+      <td>snowline.studio（注册时确认）<br><span style="color:#8A99A8;font-size:13px">snowlinestudio.com 已被注册</span></td>
+      <td><span class="verdict-ok">低</span> — 无重名游戏工作室</td>
+      <td><span class="verdict-ok">★ 推荐</span></td>
+    </tr>
+    <tr>
+      <td><b>刻滑</b> <span class="en">Carve Studio</span></td>
+      <td>carve.studio（注册时确认）<br><span style="color:#8A99A8;font-size:13px">carvestudio.com 已被注册</span></td>
+      <td><span class="verdict-mid">中</span> — 发音近滑雪 AI 品牌 Carv</td>
+      <td>备选</td>
+    </tr>
+    <tr>
+      <td><b>等高线</b> <span class="en">Contour Studio</span></td>
+      <td>contourstudio.com 已被注册</td>
+      <td><span class="verdict-no">高</span> — 鹰角子工作室 Mountain Contour（终末地开发方）</td>
+      <td><span class="verdict-no">否决</span></td>
+    </tr>
+    <tr>
+      <td><b>粉雪</b> <span class="en">Powderline Studio</span></td>
+      <td>powderlinegames.com 可用</td>
+      <td><span class="verdict-no">高</span> — 已有同名滑雪游戏与雪场数据 App</td>
+      <td><span class="verdict-no">否决</span></td>
+    </tr>
+  </table>
+  <p style="font-size:13px;color:#8A99A8;margin-top:12px">注：.studio / .games 后缀的实时注册状态需在注册商（Cloudflare / Porkbun / Dynadot）下单前再确认一次；.com 已用 RDAP 实测。</p>
+
+  <div class="sec-head" style="margin-top:44px;margin-bottom:20px">
+    <h2 style="font-size:24px">Logo 三概念</h2>
+  </div>
+  <div class="logos">
+    <div class="logo-card">
+      <img src="assets/logo-a-badge.webp" alt="Logo 概念 A：徽章">
+      <div class="cap"><h4>A · 雪线徽章 <span class="verdict-ok">★ 主推</span></h4><p>圆形徽章：雪线横贯雪峰，S 形雪道蜿蜒而下。Cel 粗描边，应用场景最广（App 图标、 loading 页、文创）。</p></div>
+    </div>
+    <div class="logo-card">
+      <img src="assets/logo-b-wordmark.webp" alt="Logo 概念 B：文字标">
+      <div class="cap"><h4>B · 文字标</h4><p>SNOWLINE 几何无衬线，字母 O 化作雪山徽章，下配「雪径」。正式文书与网站标题首选。</p></div>
+    </div>
+    <div class="logo-card">
+      <img src="assets/logo-c-mark.webp" alt="Logo 概念 C：抽象符号">
+      <div class="cap"><h4>C · 抽象符号</h4><p>三层等高线构成 S 形滑行轨迹，一道雪线横贯。极简，适合小尺寸与动态演绎。</p></div>
+    </div>
+  </div>
+
+  <div class="sec-head" style="margin-top:44px;margin-bottom:20px">
+    <h2 style="font-size:24px">VI 色彩系统</h2>
+    <p>主色取自冰川与极夜；辅助色直接采用全球通行的雪道难度色 —— 滑雪者一看就懂的行业语言。</p>
+  </div>
+  <div class="swatches">
+    <div class="swatch"><div class="c" style="background:#1F6FA8"></div><div class="t"><b>冰川蓝</b><code>#1F6FA8</code><br>主色</div></div>
+    <div class="swatch"><div class="c" style="background:#0D1B26"></div><div class="t"><b>极夜</b><code>#0D1B26</code><br>深色 / 描边</div></div>
+    <div class="swatch"><div class="c" style="background:#F4F7FA;border-bottom:3px solid #0D1B26"></div><div class="t"><b>雪原白</b><code>#F4F7FA</code><br>背景</div></div>
+    <div class="swatch"><div class="c" style="background:#E8862E"></div><div class="t"><b>霞光橙</b><code>#E8862E</code><br>点缀 / CTA</div></div>
+    <div class="swatch"><div class="c" style="background:#2FA35C"></div><div class="t"><b>绿道</b><code>#2FA35C</code><br>辅助</div></div>
+    <div class="swatch"><div class="c" style="background:#2B7FB8"></div><div class="t"><b>蓝道</b><code>#2B7FB8</code><br>辅助</div></div>
+    <div class="swatch"><div class="c" style="background:#D64545"></div><div class="t"><b>红道</b><code>#D64545</code><br>辅助</div></div>
+    <div class="swatch"><div class="c" style="background:#20242A"></div><div class="t"><b>黑道</b><code>#20242A</code><br>辅助</div></div>
+  </div>
+
+  <div class="type-demo">
+    <div class="big">Space Grotesk — ABCDEFG 0123456789</div>
+    <div class="cn">思源黑体 Noto Sans SC —— 雪径工作室</div>
+    <p class="note">英文 / 数字：Space Grotesk（几何感、技术感，与雪线主题契合）；中文：Noto Sans SC；等高线标注与数据可用等宽字体点缀，营造技术图纸感。</p>
+  </div>
+
+  <div class="next">
+    <h3>🧭 品牌落地四步（待你拍板）</h3>
+    <ol>
+      <li><b>选定名称</b> — 在本页下方回复你的选择（推荐：雪径 Snowline）。</li>
+      <li><b>注册域名</b> — 首选 <span class="en">snowline.studio</span>，备选 <span class="en">snowline.games</span>；建议同步拿下对应 .com（若可议价回购）。注册商推荐 Cloudflare / Porkbun（价格透明、无套路续费）。<b>域名注册需你本人完成</b>（实名 + 支付），我不能代注册。</li>
+      <li><b>商标查询</b> — 名称选定后，建议做一次 45 类（游戏）商标近似查询再投入使用。</li>
+      <li><b>企业邮箱与官网切换</b> — 域名到手即开通 <span class="en">hello@snowline.studio</span> 类邮箱，本站一键切换为正式官网。</li>
+    </ol>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box">
+    <h2>聊聊你的雪场</h2>
+    <p>带着雪道图来，我们负责把它变成游戏。<br><span class="en">Bring us your trail map. We'll make it playable.</span></p>
+    <a class="btn primary" href="https://github.com/eric1hua" target="_blank" rel="noopener">GitHub @eric1hua</a>
+    <p style="margin-top:18px;font-size:13px">企业邮箱待域名注册后开通 · 品牌方案公示版 v1 · 2026-10</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  © 2026 雪径 Snowline Studio · 品牌方案公示版<br>
+  首个作品 <a href="https://eric1hua.github.io/hemu-ski/" target="_blank" rel="noopener">hemu-ski</a> 已上线
+</footer>
+
+</body>
+</html>
